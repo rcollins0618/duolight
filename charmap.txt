@@ -1,0 +1,41 @@
+//Purpose:	Program to display the 8-bit character map used by
+//          the DUO Light. To be used as quick reference.
+//Author:   Richard Collins, aka "rpc0618"
+//Version:	1.0, date: 2014-10-03
+//Language:	DUO Light Pseudo C, target: dlpcCompiler.py (2014-09-24)
+
+byte tmptxt[2];
+tmptxt[1] = 0;
+byte n=0;
+byte nstr[4];
+nstr[3]=0;
+
+clearDisplay();
+
+while (1) {
+	*tmptxt = n;
+	convertIntToString(n, nstr);
+	writeDisplay(((n%42)/14)*6, n%14, nstr);
+	writeDisplay((((n%42)/14)*6)+3+(n/100)-(n/200), (n%14), tmptxt);
+	n++;
+	if ((n%42)==00 && n!=252) {
+		promptKey();
+		clearDisplay();
+	} else if (n == 252) {
+		promptKey();
+		clearDisplay();
+		while (1) {
+			*tmptxt = n;
+			convertIntToString(n, nstr);
+			writeDisplay(((n%42)/14)*6, n%14, nstr);
+			writeDisplay((((n%42)/14)*6)+3+(n/100)-(n/200), (n%14), tmptxt);
+			n++;
+			if (n==0){
+				break;
+			}
+		}
+		break;
+	}
+}
+promptKey();
+quit();
