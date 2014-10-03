@@ -1,6 +1,6 @@
 //Purpose:	Program to display the 8-bit character map used by
-//          the DUO Light. To be used as quick reference.
-//Author:   Richard Collins, aka "rpc0618"
+//		the DUO Light. To be used as quick reference.
+//Author:	Richard Collins, aka "rpc0618"
 //Version:	1.0, date: 2014-10-03
 //Language:	DUO Light Pseudo C, target: dlpcCompiler.py (2014-09-24)
 
